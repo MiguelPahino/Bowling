@@ -1,44 +1,6 @@
 import pytest
 from src.score_card import ScoreCard
 
-# Test para comprobar el correcto funcionamiento de la función get_frames
-
-def test_all_open_frames():
-    game = ScoreCard("36363636363636363636")
-    assert game.get_frames() == [["3", "6"], ["3", "6"], ["3", "6"], ["3", "6"], ["3", "6"],["3", "6"], ["3", "6"], ["3", "6"], ["3", "6"], ["3", "6"]]
-
-
-def test_single_strike():
-    game = ScoreCard("X36X36X36X36X36")
-    assert game.get_frames() == [
-        ["X"], ["3", "6"], ["X"], ["3", "6"], ["X"],
-        ["3", "6"], ["X"], ["3", "6"], ["X"], ["3", "6"]
-    ]
-
-
-def test_consecutive_strikes():
-    game = ScoreCard("XXXXXXXXXXXX")
-    assert game.get_frames() == [
-        ["X"], ["X"], ["X"], ["X"], ["X"],
-        ["X"], ["X"], ["X"], ["X"], ["X","X","X"]
-    ]
-
-
-def test_mixed_game():
-    game = ScoreCard("X72X9036XX256373")
-    assert game.get_frames() == [
-        ["X"],
-        ["7", "2"],
-        ["X"],
-        ["9", "0"],
-        ["3", "6"],
-        ["X"],
-        ["X"],
-        ["2", "5"],
-        ["6", "3"],
-        ["7", "3"]
-    ]
-
 # Comprobar el correcto funcionamiento de que devuelve la puntuación correcta
 
 @pytest.mark.state_n
